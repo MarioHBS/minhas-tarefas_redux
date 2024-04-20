@@ -1,10 +1,16 @@
-import './App.css'
+import BarraLateral from './containers/BarraLateral'
+import ListaDeTarefas from './containers/ListaTarefas'
+import GlobalStyle, { Container } from './styles/global_style'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Olá, React</h1>
-    </div>
+    <>
+      <GlobalStyle />
+      <Container>
+        <BarraLateral />
+        <ListaDeTarefas />
+      </Container>
+    </>
   )
 }
 
