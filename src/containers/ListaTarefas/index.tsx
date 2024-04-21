@@ -1,4 +1,4 @@
-import TaskComponent, { TaskType } from '../../components/Tarefa'
+import TaskComponent, { TaskProps as TaskType } from '../../components/Tarefa'
 import { Container } from './styles'
 
 const tasks: TaskType[] = [
