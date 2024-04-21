@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux'
 
-import TaskComponent, { TaskProps as TaskType } from '../../components/Tarefa'
-import * as enums from '../../utils/enums/tasks_enum'
-import { Container } from './styles'
+import TaskComponent from '../../components/Tarefa'
 import { RootReducer } from '../../redux/store'
+import { Container } from './styles'
 
 const ListaDeTarefas = () => {
-  const { tasks } = useSelector((state: RootReducer) => state)
+  const { items: tasks } = useSelector((state: RootReducer) => state.tasks)
 
   return (
     <Container>
@@ -15,8 +14,9 @@ const ListaDeTarefas = () => {
       </p>
       <ul>
         {tasks.map((task) => (
-          <li key={task.title}>
+          <li key={task.id}>
             <TaskComponent
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}

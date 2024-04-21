@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
 import * as S from './styles'
+import { remove } from '../../redux/tasks'
+import TaskModel from '../../models/Task'
 
 export type TaskProps = {
   title: string
@@ -16,8 +19,17 @@ export type TagProps = {
   params: 'status' | 'priority'
 }
 
-const TaskComponent = ({ description, priority, status, title }: TaskProps) => {
+const TaskComponent = ({
+  id,
+  description,
+  priority,
+  status,
+  title
+}: TaskModel) => {
+  const dsp = useDispatch()
   const [isEditing, setEdit] = useState(false)
+
+  const removeElm = () => dsp(remove(id))
 
   return (
     <S.CardTask>
@@ -40,7 +52,7 @@ const TaskComponent = ({ description, priority, status, title }: TaskProps) => {
         ) : (
           <>
             <S.ButtonTask onClick={() => setEdit(true)}>Editar</S.ButtonTask>
-            <S.ButtonCancelTask>Remover</S.ButtonCancelTask>
+            <S.ButtonCancelTask onClick={removeElm}>Remover</S.ButtonCancelTask>
           </>
         )}
       </S.ActionBarTask>

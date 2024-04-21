@@ -11,7 +11,7 @@ const BarraLateral = () => (
         <FiltroCard counter={1} label="concluídas" />
         <FiltroCard counter={1} label="urgentes" />
         <FiltroCard counter={5} label="importantes" />
-        <FiltroCard ativo counter={1} label="normal" />
+        <FiltroCard counter={1} label="normal" ativo />
         <FiltroCard counter={10} label="todas" />
       </S.Filtros>
     </div>

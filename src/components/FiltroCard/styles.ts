@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { Props } from '.'
+import { FilterProps } from '.'
 
-type PropsToCard = Omit<Props, 'counter' | 'label'>
+type PropsToCard = Omit<FilterProps, 'counter' | 'label'>
 
 export const Card = styled.div<PropsToCard>`
   padding: 8px;
