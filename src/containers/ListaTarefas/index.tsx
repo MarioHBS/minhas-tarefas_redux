@@ -1,36 +1,37 @@
 import TaskComponent, { TaskProps as TaskType } from '../../components/Tarefa'
+import * as enums from '../../utils/enums/tasks_enum'
 import { Container } from './styles'
 
 const tasks: TaskType[] = [
   {
     title: 'Estudar TypesScript',
     description: 'Ver a aula 3 da EBAC',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.PriorityType.IMPORTANT,
+    status: enums.StatusType.PENDING
   },
   {
     title: 'Pagar conta de Internet',
     description: 'Baixar fatura no Email',
-    priority: 'urgente',
-    status: 'concluída'
+    priority: enums.PriorityType.URGENT,
+    status: enums.StatusType.CONCLUDED
   },
   {
     title: 'Ir para a academia',
     description: 'Fazer treino B',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.PriorityType.IMPORTANT,
+    status: enums.StatusType.PENDING
   },
   {
     title: 'Estudar Redux',
     description: 'Ver a aula 5 da EBAC',
-    priority: 'importante',
-    status: 'editando'
+    priority: enums.PriorityType.IMPORTANT,
+    status: enums.StatusType.CONCLUDED
   },
   {
     title: 'Ir para a academia',
     description: 'Fazer treino A',
-    priority: 'normal',
-    status: 'pendente'
+    priority: enums.PriorityType.NORMAL,
+    status: enums.StatusType.PENDING
   }
 ]
 

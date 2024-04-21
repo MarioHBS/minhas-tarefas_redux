@@ -1,15 +1,18 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+
 import { TagProps } from '.'
+import variables from '../../styles/variables'
+
+import * as enums from '../../utils/enums/tasks_enum'
 
 function selectColor(props: TagProps): string {
-  if ('status' in props) {
-    if (props.status === 'pendente') return variables.yellow
-    if (props.status === 'concluída') return variables.greenOk
-  } else if ('priority' in props) {
-    if (props.priority === 'urgente') return variables.redAlert
-    if (props.priority === 'importante') return variables.yellowDark
-    if (props.priority === 'normal') return '#ccc'
+  if (props.params === 'status') {
+    if (props.status === enums.StatusType.PENDING) return variables.yellow
+    if (props.status === enums.StatusType.CONCLUDED) return variables.greenOk
+  } else {
+    if (props.priority === enums.PriorityType.URGENT) return variables.redAlert
+    if (props.priority === enums.PriorityType.IMPORTANT)
+      return variables.yellowDark
   }
   return '#ccc'
 }
