@@ -1,14 +1,25 @@
-import BarraLateral from './containers/BarraLateral'
-import ListaDeTarefas from './containers/ListaTarefas'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Home from './pages/Home'
 import GlobalStyle, { Container } from './styles/global_style'
+
+const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/novo',
+    element: <h1>Nova Tarefa</h1>
+  }
+])
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Container>
-        <BarraLateral />
-        <ListaDeTarefas />
+        <RouterProvider router={routes} />
       </Container>
     </>
   )
