@@ -1,9 +1,10 @@
 import FiltroCard from '../../components/FiltroCard'
 
-import * as S from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../redux/store'
 import { setQuery } from '../../redux/filters'
+import { RootReducer } from '../../redux/store'
+import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
+import * as S from './styles'
 
 const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -19,12 +20,32 @@ const BarraLateral = () => {
           onChange={(evt) => dispatch(setQuery(evt.target.value))}
         />
         <S.Filtros>
-          <FiltroCard counter={1} label="pendentes" />
-          <FiltroCard counter={1} label="concluídas" />
-          <FiltroCard counter={1} label="urgentes" />
-          <FiltroCard counter={5} label="importantes" />
-          <FiltroCard counter={1} label="normal" ativo />
-          <FiltroCard counter={10} label="todas" />
+          <FiltroCard
+            criterion="status"
+            label="pendentes"
+            value={StatusType.PENDING}
+          />
+          <FiltroCard
+            criterion="status"
+            label="concluídas"
+            value={StatusType.CONCLUDED}
+          />
+          <FiltroCard
+            criterion="prioridade"
+            label="urgentes"
+            value={PriorityType.URGENT}
+          />
+          <FiltroCard
+            criterion="prioridade"
+            label="importantes"
+            value={PriorityType.IMPORTANT}
+          />
+          <FiltroCard
+            criterion="prioridade"
+            label="normal"
+            value={PriorityType.NORMAL}
+          />
+          <FiltroCard criterion="todas" label="todas" />
         </S.Filtros>
       </div>
     </S.Aside>

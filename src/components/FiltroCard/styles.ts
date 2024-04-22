@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-import { FilterProps } from '.'
-
-type PropsToCard = Omit<FilterProps, 'counter' | 'label'>
+// type PropsToCard = Omit<FilterProps, 'criterion' | 'counter' | 'label'>
+type PropsToCard = {
+  ativo: boolean
+}
 
 export const Card = styled.div<PropsToCard>`
   padding: 8px;
@@ -10,6 +11,7 @@ export const Card = styled.div<PropsToCard>`
   background-color: ${({ ativo }) => (ativo ? '#fff' : '#fcfcfc')};
   color: ${({ ativo }) => (ativo ? '#1e90ff' : '#5e5e5e')};
   border-radius: 8px;
+  cursor: pointer;
 `
 export const CounterStyle = styled.span`
   font-weight: bold;

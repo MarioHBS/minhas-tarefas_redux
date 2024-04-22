@@ -2,14 +2,14 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import * as enums from '../../utils/enums/tasks_enum'
 
 type FilterState = {
-  query: string
-  critery: 'prioridade' | 'status' | 'todas'
-  valor?: enums.PriorityType | enums.StatusType
+  query?: string
+  criteria: 'prioridade' | 'status' | 'todas'
+  value?: enums.PriorityType | enums.StatusType
 }
 
 const initialState: FilterState = {
   query: '',
-  critery: 'todas'
+  criteria: 'todas'
 }
 
 const filterSlice = createSlice({
@@ -18,9 +18,13 @@ const filterSlice = createSlice({
   reducers: {
     setQuery: (state, action: PayloadAction<string>) => {
       state.query = action.payload
+    },
+    setCriterion: (state, action: PayloadAction<FilterState>) => {
+      state.criteria = action.payload.criteria
+      state.value = action.payload.value
     }
   }
 })
 
-export const { setQuery } = filterSlice.actions
+export const { setCriterion, setQuery } = filterSlice.actions
 export default filterSlice.reducer
