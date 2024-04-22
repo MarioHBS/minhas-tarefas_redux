@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux'
 
 import TaskModel from '../../models/Task'
 import { edit, remove } from '../../redux/tasks'
+import { ButtonSaveTask } from '../../styles/global_style'
 import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
 import { objectify } from '../../utils/tools'
+
 import * as S from './styles'
 
 export type TaskProps = {
@@ -63,7 +65,7 @@ const TaskComponent = ({
       <S.ActionBarTask>
         {isEditing ? (
           <>
-            <S.ButtonSaveTask onClick={editElm}>Salvar</S.ButtonSaveTask>
+            <ButtonSaveTask onClick={editElm}>Salvar</ButtonSaveTask>
             <S.ButtonCancelTask onClick={cancel_remove}>
               Cancelar
             </S.ButtonCancelTask>

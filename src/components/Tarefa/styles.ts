@@ -72,10 +72,6 @@ export const ButtonTask = styled.button`
   margin-right: 8px;
 `
 
-export const ButtonSaveTask = styled(ButtonTask)`
-  background-color: ${variables.greenOk};
-`
-
 export const ButtonCancelTask = styled(ButtonTask)`
   background-color: ${variables.redAlert};
 `

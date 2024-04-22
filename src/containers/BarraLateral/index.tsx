@@ -3,6 +3,7 @@ import FiltroCard from '../../components/FiltroCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { setQuery } from '../../redux/filters'
 import { RootReducer } from '../../redux/store'
+import { Campo } from '../../styles/global_style'
 import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
 import * as S from './styles'
 
@@ -13,7 +14,7 @@ const BarraLateral = () => {
   return (
     <S.Aside>
       <div>
-        <S.Campo
+        <Campo
           type="text"
           placeholder="Buscar"
           value={query}
