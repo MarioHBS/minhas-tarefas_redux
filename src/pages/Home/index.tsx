@@ -1,11 +1,13 @@
+import BotaoAdicionar from '../../components/BotaoAdicionar'
 import BarraLateral from '../../containers/BarraLateral'
 import ListaDeTarefas from '../../containers/ListaTarefas'
 
-const Home = () => (
+const HomePage = () => (
   <>
     <BarraLateral />
     <ListaDeTarefas />
+    <BotaoAdicionar />
   </>
 )
 
-export default Home
+export default HomePage

@@ -1,16 +1,17 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Home from './pages/Home'
+import HomePage from './pages/Home'
 import GlobalStyle, { Container } from './styles/global_style'
+import NewTaskPage from './pages/NewTask'
 
 const routes = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <HomePage />
   },
   {
     path: '/novo',
-    element: <h1>Nova Tarefa</h1>
+    element: <NewTaskPage />
   }
 ])
 
