@@ -3,7 +3,7 @@ import FormComponent from '../../containers/Formulario'
 
 const NewTaskPage = () => (
   <>
-    <BarraLateral />
+    <BarraLateral showFilters={false} />
 
     <FormComponent />
   </>

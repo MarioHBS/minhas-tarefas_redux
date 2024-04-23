@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import TaskModel from '../../models/Task'
-import { edit, remove } from '../../redux/tasks'
-import { ButtonSaveTask } from '../../styles/global_style'
+import { edit, remove, setChecked } from '../../redux/tasks'
+import { ButtonSaveTask, ButtonTask } from '../../styles/global_style'
 import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
 import { objectify } from '../../utils/tools'
 
@@ -48,9 +48,29 @@ const TaskComponent = ({
     setDescription(description)
   }
 
+  function changeState(evt: ChangeEvent<HTMLInputElement>) {
+    dsp(
+      setChecked({
+        id,
+        finished: evt.target.checked
+      })
+    )
+  }
+
   return (
     <S.CardTask>
-      <S.TitleTask>{title}</S.TitleTask>
+      <label htmlFor={title}>
+        <input
+          type="checkbox"
+          id={title}
+          checked={status === StatusType.CONCLUDED}
+          onChange={changeState}
+        />
+        <S.TitleTask>
+          {isEditing && <em>Editando: </em>}
+          {title}
+        </S.TitleTask>
+      </label>
       <S.TagTask params="priority" priority={priority}>
         {priority}
       </S.TagTask>
@@ -72,7 +92,7 @@ const TaskComponent = ({
           </>
         ) : (
           <>
-            <S.ButtonTask onClick={() => setEdit(true)}>Editar</S.ButtonTask>
+            <ButtonTask onClick={() => setEdit(true)}>Editar</ButtonTask>
             <S.ButtonCancelTask onClick={removeElm}>Remover</S.ButtonCancelTask>
           </>
         )}

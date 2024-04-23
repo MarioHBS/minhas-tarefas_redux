@@ -4,6 +4,7 @@ import { TagProps } from '.'
 import variables from '../../styles/variables'
 
 import * as enums from '../../utils/enums/tasks_enum'
+import { ButtonTask } from '../../styles/global_style'
 
 function selectColor(props: TagProps): string {
   if (props.params === 'status') {
@@ -23,12 +24,18 @@ export const CardTask = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
 `
 
 export const TitleTask = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-left: 8px;
 `
 
 export const TagTask = styled.span<TagProps>`
@@ -58,18 +65,6 @@ export const DescriptionTask = styled.textarea`
 export const ActionBarTask = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 16px;
-`
-
-export const ButtonTask = styled.button`
-  font-weight: bold;
-  font-size: 12px;
-  color: #fff;
-  background-color: ${variables.btnNormal};
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  margin-right: 8px;
 `
 
 export const ButtonCancelTask = styled(ButtonTask)`

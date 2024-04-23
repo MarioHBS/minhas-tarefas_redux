@@ -23,15 +23,14 @@ const FormComponent = () => {
   const registerTask = (evt: FormEvent) => {
     evt.preventDefault()
 
-    const newTask = new TaskModel(
-      45,
-      title,
-      description,
-      priority,
-      StatusType.PENDING
+    dispatch(
+      register({
+        title,
+        description,
+        priority,
+        status: StatusType.PENDING
+      })
     )
-
-    dispatch(register(newTask))
     navigate('/') // assim que cadastrar voltar para tela inicial
   }
 
@@ -49,7 +48,7 @@ const FormComponent = () => {
         <Campo
           value={description}
           onChange={({ target }) => setDescription(target.value)}
-          as={'textArea'}
+          as={'textarea'}
           placeholder="Descrição da tarefa"
         />
         {}
