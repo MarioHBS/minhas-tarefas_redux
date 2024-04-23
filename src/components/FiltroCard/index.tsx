@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { setCriterion } from '../../redux/filters'
+import { RootReducer } from '../../redux/store'
 import * as enums from '../../utils/enums/tasks_enum'
 import * as S from './styles'
-import { RootReducer } from '../../redux/store'
 
 export type FilterProps = {
   label: string
@@ -25,13 +25,14 @@ const FiltroCard = ({ criterion: criteria, label, value }: FilterProps) => {
       return tasks.items.filter((item) => item.status === value).length
     }
   }
-  const isActive = () =>
+  const verifyActive = () =>
     filters.criteria === criteria && filters.value === value
 
   const counter = countTasks()
+  const isActive = verifyActive()
 
   return (
-    <S.Card ativo={isActive()} onClick={filter}>
+    <S.Card active={isActive} onClick={filter}>
       <S.CounterStyle>{counter}</S.CounterStyle>
       <S.LabelStyle>{label}</S.LabelStyle>
     </S.Card>

@@ -1,4 +1,10 @@
-import { FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { register } from '../../redux/tasks'
+import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
+// styles
 import {
   ButtonSaveTask,
   Campo,
@@ -6,11 +12,6 @@ import {
   TitleResult
 } from '../../styles/global_style'
 import { Form, Option, Options } from './styles'
-import { useDispatch } from 'react-redux'
-import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
-import TaskModel from '../../models/Task'
-import { register } from '../../redux/tasks'
-import { useNavigate } from 'react-router-dom'
 
 const FormComponent = () => {
   const dispatch = useDispatch()
@@ -34,15 +35,20 @@ const FormComponent = () => {
     navigate('/') // assim que cadastrar voltar para tela inicial
   }
 
+  function change(evt: ChangeEvent<HTMLInputElement>) {
+    console.log(evt.target.value)
+    setTitle(evt.target.value)
+  }
+
   return (
     <MainContainer>
       <TitleResult>Nova Tarefa</TitleResult>
 
       <Form onSubmit={registerTask}>
         <Campo
-          value={title}
-          onChange={({ target }) => setTitle(target.value)}
           type="text"
+          value={title}
+          onChange={change}
           placeholder="Título"
         />
         <Campo

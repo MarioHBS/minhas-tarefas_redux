@@ -3,5 +3,6 @@ export default {
   redAlert: '#C23616',
   greenOk: '#44bd32',
   yellowDark: '#e1a32a',
-  yellow: '#f0c11a'
+  yellow: '#f0c11a',
+  blueEmphasis: '#1e90ff'
 }
