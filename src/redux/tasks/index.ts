@@ -62,9 +62,21 @@ const taskSlice = createSlice({
       if (index > -1) {
         state.items[index] = action.payload
       }
+    },
+    register: (state, action: PayloadAction<TaskModel>) => {
+      const tarefaExists = state.items.find(
+        (item) =>
+          item.title.toLowerCase() === action.payload.title.toLowerCase()
+      )
+
+      if (tarefaExists) {
+        alert('Tarefa já existe')
+      } else {
+        state.items = [...state.items, action.payload]
+      }
     }
   }
 })
 
-export const { edit, remove } = taskSlice.actions
+export const { edit, register, remove } = taskSlice.actions
 export default taskSlice.reducer
