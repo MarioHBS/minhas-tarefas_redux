@@ -1,12 +1,13 @@
-import FiltroCard from '../../components/FiltroCard'
-
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import FiltroCard from '../../components/FiltroCard'
 import { setQuery } from '../../redux/filters'
 import { RootReducer } from '../../redux/store'
-import { ButtonTask, Campo } from '../../styles/global_style'
 import { PriorityType, StatusType } from '../../utils/enums/tasks_enum'
+
+import { ButtonTask, Campo } from '../../styles/global_style'
 import * as S from './styles'
-import { useNavigate } from 'react-router-dom'
 
 type Props = {
   showFilters: boolean

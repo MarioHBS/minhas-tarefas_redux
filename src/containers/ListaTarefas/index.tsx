@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import TaskComponent from '../../components/Tarefa'
 import { RootReducer } from '../../redux/store'
 import { MainContainer, TitleResult } from '../../styles/global_style'
+import TaskModel from '../../models/Task'
 
 const ListaDeTarefas = () => {
   const { items: tasks } = useSelector((state: RootReducer) => state.tasks)
@@ -23,7 +24,7 @@ const ListaDeTarefas = () => {
     return message
   }
 
-  const filtering = () => {
+  function filtering(): TaskModel[] {
     let filteredTasks = tasks
     if (query != undefined) {
       filteredTasks = filteredTasks.filter(
@@ -49,7 +50,7 @@ const ListaDeTarefas = () => {
     <MainContainer>
       <TitleResult as="p">{displayValue}</TitleResult>
       <ul>
-        {filtering().map((task) => (
+        {filterValue.map((task) => (
           <li key={task.id}>
             <TaskComponent
               id={task.id}
